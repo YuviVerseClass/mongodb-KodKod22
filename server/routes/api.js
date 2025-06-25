@@ -14,7 +14,7 @@ apiRouter.post('/tasks',dbController.addTask);
 // PATCH  /tasks/:id     => db.toggleTask
 apiRouter.patch('/tasks/:id',dbController.toggleTask)
 // DELETE /tasks/:id     => db.deleteTask
-//apiRouter.delete('/tasks:id',dbController.deleteTask);
+apiRouter.delete('/tasks/:id',dbController.deleteTask);
 // Export the router
 module.exports = apiRouter;
 

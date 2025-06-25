@@ -46,6 +46,18 @@ async function toggleTask(req, res) {
 
 async function deleteTask(req, res) {
   // TODO
+  try{
+    const { id } = req.params;
+    const task = await Task.findById(id);
+    if (!task) {
+      return res.status(404).json({error:"could not find task"});
+    }
+    const deleteTask = await Task.deleteOne({_id:id});
+    res.json({message:"task delete"});
+
+  }catch(error){
+    res.status(400).json({error:"cant delete task"});
+  }
 }
 
 module.exports = {
