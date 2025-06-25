@@ -28,6 +28,19 @@ async function addTask(req, res) {
 
 async function toggleTask(req, res) {
   // TODO
+  try{
+    const { id } = req.params;
+    const task = await Task.findById(id);
+
+    if (!task) {
+      res.status(404).json({error:"could not find task"});
+    }
+    const updateResponse = await Task.updateOne({_id: id},{$set:{done: !task.done}});
+    res.json({message:"task update"});
+  }catch(error){
+    res.status(400).json({error:"cant update task"})
+  }
+ 
   
 }
 
