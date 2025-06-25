@@ -8,7 +8,7 @@ const dbController = require('../controllers/dbController');
 
 // Wire each of the following routes to its controller method:
 // GET    /tasks         => db.getTasks
-//apiRouter.get('/tasks',dbController.getTasks);
+apiRouter.get('/tasks',dbController.getTasks);
 // POST   /tasks         => db.addTask
 apiRouter.post('/tasks',dbController.addTask);
 // PATCH  /tasks/:id     => db.toggleTask

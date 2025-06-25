@@ -2,6 +2,14 @@ const Task = require('../models/Task');
 
 async function getTasks(req, res) {
   // TODO
+  try
+  {
+    const tasks = await Task.find();
+    res.json(tasks);
+  }catch(err){
+    res.status(500).json({error:"cant get tasks"});
+  }
+  
 }
 
 async function addTask(req, res) {
@@ -14,12 +22,13 @@ async function addTask(req, res) {
 
   }catch(err){
     res.status(400).json({error: "could not add task"});
-    
+
   }
 }
 
 async function toggleTask(req, res) {
   // TODO
+  
 }
 
 async function deleteTask(req, res) {
