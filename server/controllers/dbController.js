@@ -6,6 +6,16 @@ async function getTasks(req, res) {
 
 async function addTask(req, res) {
   // TODO
+  try {
+    const { title } = req.body;
+    const newTask = new Task( {title} );
+    await newTask.save();
+    res.status(201).json(newTask);
+
+  }catch(err){
+    res.status(400).json({error: "could not add task"});
+    
+  }
 }
 
 async function toggleTask(req, res) {
